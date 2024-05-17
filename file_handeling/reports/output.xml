@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.9.11 on win32)" generated="20240517 12:28:43.138" rpa="false" schemaversion="4">
+<suite id="s1" name="TC Launch Application" source="D:\Users\rkendre\Rajeev\learning\previous_projects\pytest\robotFramework\Test_Cases\TC_Launch_Application.robot">
+<test id="s1-t1" name="TC01 Login to the application" line="25">
+<kw name="Launch browser and Search" library="common_keyword_one">
+<arg>${link}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${browser_name}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240517 12:28:44.290" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1/'.</msg>
+<status status="PASS" starttime="20240517 12:28:44.289" endtime="20240517 12:28:55.208"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clickLoginButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240517 12:28:55.208" endtime="20240517 12:28:55.284"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${clickLoginButton}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240517 12:28:55.330" level="INFO">Element '//input[@value="Login"]' is displayed.</msg>
+<status status="PASS" starttime="20240517 12:28:55.284" endtime="20240517 12:28:55.330"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${usernameField}</arg>
+<arg>${Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240517 12:28:55.332" level="INFO">Typing text 'admin' into text field '//input[@id="loginUsernameId"]'.</msg>
+<status status="PASS" starttime="20240517 12:28:55.331" endtime="20240517 12:28:55.553"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passwordField}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240517 12:28:55.554" level="INFO">Typing text 'Iasys@128' into text field '//input[@id="loginPasswordId"]'.</msg>
+<status status="PASS" starttime="20240517 12:28:55.553" endtime="20240517 12:28:56.071"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${clickLoginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240517 12:28:56.073" level="INFO">Clicking element '//input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20240517 12:28:56.071" endtime="20240517 12:28:59.612"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<arg>reason='waiting for element to appear'</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240517 12:29:04.614" level="INFO">Slept 5 seconds</msg>
+<msg timestamp="20240517 12:29:04.615" level="INFO">'waiting for element to appear'</msg>
+<status status="PASS" starttime="20240517 12:28:59.613" endtime="20240517 12:29:04.615"/>
+</kw>
+<status status="PASS" starttime="20240517 12:28:44.289" endtime="20240517 12:29:04.615"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${dashboard}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240517 12:29:04.713" level="INFO">Element '//*[text()="dashboard"]' is displayed.</msg>
+<status status="PASS" starttime="20240517 12:29:04.616" endtime="20240517 12:29:04.713"/>
+</kw>
+<doc>web Navigation'
+ 
+ is set to correct default value 
+</doc>
+<tag>web</tag>
+<status status="PASS" starttime="20240517 12:28:44.288" endtime="20240517 12:29:04.762"/>
+</test>
+<test id="s1-t2" name="TC02 Verify the initial date format in file" line="34">
+<kw name="Read Data From File" library="file_operations">
+<var>${recievedFormat}</var>
+<arg>${filePath}</arg>
+<arg>${advanced_options}</arg>
+<arg>${formatters_standard_datefmt}</arg>
+<doc>This method will read the data from file, based on their file type
+Args:
+    "file_path" : path of the file
+    String keyOne : key one 
+    String keyTwo : key two
+Returns:
+    String file_data: file data</doc>
+<msg timestamp="20240517 12:29:05.036" level="INFO">['C:/Program Files/exacqVision/EnterpriseManager//EnterpriseSystemManager/logs/log_settings', 'yaml']
+advanced_options
+formatters_standard_datefmt
+%d/%b/%Y %H:%M:%S</msg>
+<msg timestamp="20240517 12:29:05.037" level="INFO">${recievedFormat} = %d/%b/%Y %H:%M:%S</msg>
+<status status="PASS" starttime="20240517 12:29:04.999" endtime="20240517 12:29:05.037"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${recievedFormat}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240517 12:29:05.070" level="INFO">%d/%b/%Y %H:%M:%S</msg>
+<status status="PASS" starttime="20240517 12:29:05.068" endtime="20240517 12:29:05.070"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${recievedFormat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240517 12:29:05.101" endtime="20240517 12:29:05.103"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expectedDateFormat}</arg>
+<arg>${recievedFormat}</arg>
+<arg>msg=verification failed as ${expectedDateFormat} was not equal to ${recievedFormat}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240517 12:29:05.111" endtime="20240517 12:29:05.114"/>
+</kw>
+<doc>Name: Advanced Logging Features 'formatters_standard_datefmt'
+ 
+ is set to correct default value 
+</doc>
+<tag>Enterprise_Manager</tag>
+<tag>Logging</tag>
+<tag>Regression_Test</tag>
+<tag>Settings</tag>
+<tag>TEST-T508</tag>
+<status status="PASS" starttime="20240517 12:29:04.985" endtime="20240517 12:29:05.133"/>
+</test>
+<test id="s1-t3" name="TC03 Verify the initial date format in file" line="44">
+<kw name="Read Data From File" library="file_operations">
+<var>${recievedFormat}</var>
+<arg>${filePath}</arg>
+<arg>${advanced_options}</arg>
+<arg>${formatters_standard_format}</arg>
+<doc>This method will read the data from file, based on their file type
+Args:
+    "file_path" : path of the file
+    String keyOne : key one 
+    String keyTwo : key two
+Returns:
+    String file_data: file data</doc>
+<msg timestamp="20240517 12:29:05.240" level="INFO">['C:/Program Files/exacqVision/EnterpriseManager//EnterpriseSystemManager/logs/log_settings', 'yaml']
+advanced_options
+formatters_standard_format
+[%(asctime)s] %(levelname)s [%(processName)s:%(process)d,%(threadName)s:%(thread)d,%(filename)s:%(lineno)s] %(message)s</msg>
+<msg timestamp="20240517 12:29:05.241" level="INFO">${recievedFormat} = [%(asctime)s] %(levelname)s [%(processName)s:%(process)d,%(threadName)s:%(thread)d,%(filename)s:%(lineno)s] %(message)s</msg>
+<status status="PASS" starttime="20240517 12:29:05.198" endtime="20240517 12:29:05.241"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${recievedFormat}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240517 12:29:05.446" level="INFO">[%(asctime)s] %(levelname)s [%(processName)s:%(process)d,%(threadName)s:%(thread)d,%(filename)s:%(lineno)s] %(message)s</msg>
+<status status="PASS" starttime="20240517 12:29:05.445" endtime="20240517 12:29:05.446"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${recievedFormat}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240517 12:29:05.455" endtime="20240517 12:29:05.487"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${formatters_standard_format_value}</arg>
+<arg>${recievedFormat}</arg>
+<arg>msg=verification failed as ${expectedDateFormat} was not equal to ${recievedFormat}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240517 12:29:05.498" endtime="20240517 12:29:05.499"/>
+</kw>
+<doc>Name: Advanced Logging Features 'formatters_standard_datefmt'
+ 
+ is set to correct default value 
+</doc>
+<tag>Enterprise_Manager</tag>
+<tag>Logging</tag>
+<tag>Regression_Test</tag>
+<tag>Settings</tag>
+<tag>TEST-T508</tag>
+<status status="PASS" starttime="20240517 12:29:05.183" endtime="20240517 12:29:05.654"/>
+</test>
+<test id="s1-t4" name="TC04 Verify the initial date format in file" line="54">
+<kw name="Pass Execution" library="BuiltIn">
+<arg>message</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<msg timestamp="20240517 12:29:05.813" level="INFO">Execution passed with message:
+message</msg>
+<status status="PASS" starttime="20240517 12:29:05.813" endtime="20240517 12:29:05.814"/>
+</kw>
+<status status="PASS" starttime="20240517 12:29:05.805" endtime="20240517 12:29:05.817">message</status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240517 12:29:05.916" endtime="20240517 12:29:16.786"/>
+</kw>
+<doc>*Author: Rajeev Kendre*
+General Test Steps Approach:
+  - Log in and navigate to the Search results page.</doc>
+<status status="PASS" starttime="20240517 12:28:43.156" endtime="20240517 12:29:16.786"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Enterprise_Manager</stat>
+<stat pass="2" fail="0" skip="0">Logging</stat>
+<stat pass="2" fail="0" skip="0">Regression_Test</stat>
+<stat pass="2" fail="0" skip="0">Settings</stat>
+<stat pass="2" fail="0" skip="0">TEST-T508</stat>
+<stat pass="1" fail="0" skip="0">web</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="TC Launch Application">TC Launch Application</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
