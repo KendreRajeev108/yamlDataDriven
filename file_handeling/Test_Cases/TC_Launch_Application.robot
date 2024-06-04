@@ -4,7 +4,9 @@ Documentation    *Author: Rajeev Kendre*
 ...                - Log in and navigate to the Search results page.
 
 Library    SeleniumLibrary
-Library     BuiltIn
+Library    BuiltIn
+Library    String
+Library    Collections
 Resource    ../Object_Repository/login_page.robot
 Resource    ../Test_Data/Test_Data_File.robot
 Library    ../Lib/Python/file_operations.py
@@ -18,18 +20,49 @@ Suite Teardown      Close All Browsers
 ${ROOT}
 ${fileName}    log_settings.yaml
 ${filePath}    ${ROOT}/EnterpriseSystemManager/logs/${fileName}
+${listItems}    (//*[@method="get"]//a)
+${listItems_m}    (//*[@method="get"]//a)[<index>]
 
 
 ***Test Cases***
 
-TC01 Login to the application
+TC01 Login to the application and search for roles
     [Documentation]       web Navigation' 
     ...                    \n\ is set to correct default value \n
     
     [Tags]    web    
     Launch browser and Search    ${link}   ${browser}
     Element Should Be Visible    ${dashboard}
-
+    Wait Until Element Is Visible    ${search_box}
+    Sleep    10s
+    SeleniumLibrary.Click Element    ${search_box}
+    Input Text    ${search_box}    test
+    Sleep    4s
+    # Press Key    ${search_box}    TAB
+    SeleniumLibrary.Press Keys    ${search_box}    RETURN
+    Sleep    5s
+    # @{user_list}    Get Element Attribute    //*[@method="get"]//a    text
+    # log to console    @{user_list}
+    Wait Until Element Is Visible    ${listItems}
+    ${ROWS} =    Get WebElements    ${listItems}
+    ${EMAIL_ID_LIST}=    Create List
+    ${ROW_COUNT}=    Get Length    ${ROWS}
+        FOR    ${I_CTR}    IN RANGE    1    ${ROW_COUNT}
+        ${I_CTR}=    Convert To String    ${I_CTR}
+        ${EMAIL_ID}=    Replace String    ${listItems_m}    <index>    ${I_CTR}
+        ${user_list}    Get Element Attribute    ${EMAIL_ID}    text
+        # ${EMAIL}=    Get Text    ${EMAIL_ID}
+       Append To List    ${EMAIL_ID_LIST}    ${user_list}
+    END
+    Log to console    ${EMAIL_ID_LIST}
+    Log    ${EMAIL_ID_LIST}
+    Sleep    10s
+    
+    # python script to check user is available or not
+    ${output}    Check Roles Avaibility    ${EMAIL_ID_LIST}    miketestuser
+    Log    ${output}
+    Log to console    ${output}  
+    Close All Browsers
 
 TC02 Verify the initial date format in file
     [Documentation]       Name: Advanced Logging Features 'formatters_standard_datefmt' 

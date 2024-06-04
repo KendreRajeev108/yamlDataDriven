@@ -68,3 +68,17 @@ class file_operations(object):
             pass
         except Exception as error:
             raise error
+        
+    def check_roles_avaibility(self, roles, expected_role):
+        '''
+        check wheather expected role is present in list of roles
+        '''
+        try:
+            r_flag = roles.__contains__(expected_role)
+            if r_flag:
+                return  f'The {expected_role} is present in the given list{roles}'
+            else:
+                return  (f'The {expected_role} is NOT present in the given list {roles}')
+
+        except Exception as error:
+            raise error
