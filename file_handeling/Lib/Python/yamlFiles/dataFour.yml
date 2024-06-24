@@ -1,0 +1,67 @@
+TEST-T531:
+  Working_Server_1:
+    IP: 10.200.100.123
+    port: 8886
+    username: userOne
+    password: passOne
+    sync: 'Yes'
+    Camera:
+      Isconnected: 'Yes'
+      LiveStreaming: 'Yes'
+  Working_Server_2:
+    IP: 10.200.100.223
+    port: 8896
+    username: userTwo
+    password: passTwo
+    sync: 'Yes'
+    Camera:
+      Isconnected: 'Yes'
+      LiveStreaming: 'Yes'
+  protected_Server_1:
+    IP: 10.200.100.556
+    port: 8877
+    username: userThree
+    password: passThree
+    sync: 'Yes'
+    Camera:
+      Isconnected: 'Yes'
+      LiveStreaming: 'Yes'
+  Fail_Server_1:
+    IP: 10.200.100.203
+    port: 8889
+    username: userFour
+    password: passFour
+    sync: 'Yes'
+    Camera:
+      Isconnnected: 'Yes'
+      LiveStreaming: 'Yes'
+  Camera:
+    Isconnected: 'Yes'
+    LiveStreaming: 'Yes'
+TEST-T544:
+  Working_Server_1:
+    IP: 10.200.100.123
+    port: 8886
+    username: user1
+    password: pass1
+    sync: 'Yes'
+    Camera:
+      Isconnected: 'Yes'
+      LiveStreaming: 'Yes'
+  Fail_Server_1:
+    IP: 10.200.100.203
+    port: 8889
+    username: userOne
+    password: passOne
+    sync: 'Yes'
+    Camera:
+      Isconnnected: 'Yes'
+      LiveStreaming: 'Yes'
+  Camera:
+    Isconnected: 'Yes'
+    LiveStreaming: 'Yes'
+  Backup:
+    Filename: xyz.txt
+    Frequency: Weekly
+
+

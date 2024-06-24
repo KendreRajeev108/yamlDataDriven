@@ -1,0 +1,18 @@
+company_name: Mystery Inc
+description: Solves amazing mysteries
+employees:
+  - firstName : Scooby
+    lastName: Doo
+    salary: 20000
+  - firstName : Shaggy
+    lastName: Rogers
+    salary: 15000
+  - firstName : Fred
+    lastName: Jones
+    salary: 15000
+  - firstName : Velma
+    lastName: Dinkley
+    salary: 15000
+  - firstName : Daphne
+    lastName: Blake
+    salary: 15000
