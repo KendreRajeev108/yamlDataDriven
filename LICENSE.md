@@ -1,1 +1,1 @@
-# Strictly licenced to Kendre Rajeev.
+# Strictly licenced to rkendre
