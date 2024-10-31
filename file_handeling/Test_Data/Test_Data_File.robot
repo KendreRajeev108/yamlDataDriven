@@ -11,12 +11,12 @@ ${browser}      Chrome
 ${list}
 
 # login details
-# ${link}     http://esmdemo.exacq.com
-${link}     http://127.0.0.1/
-# ${Username}    altimetrik
-# ${Password}    @Met3K#!
-${Username}    admin
-${Password}    Iasys@128
+${link}     http://esmdemo.exacq.com
+# ${link}     http://127.0.0.1/
+${Username}    altimetrik
+${Password}    @Met3K#!
+# ${Username}    admin
+# ${Password}    Iasys@128
 
 # ${folderPath}     C:/Program Files/exacqVision/EnterpriseManager/EnterpriseSystemManager/logs
 ${fileName}       log_settings.yaml

@@ -1,0 +1,54 @@
+
+add_server_data:
+  - test_case:
+      - working_server:
+          - u_id : 12
+            tc_id : 1445
+            ip_address: 187.78.35.6
+            port: 8866
+            username: usernameOne
+            password: passwordOne
+            additional_data: No additional data required
+            server_type: working
+
+      - working_server:
+          - u_id : 13
+            tc_id : 1445
+            ip_address: 187.78.35.8
+            port: 8866
+            username: usernameTwo
+            password: passwordTwo
+            additional_data: No additional data required
+            server_type: working
+
+  - test_case:
+      - working_server:
+          - u_id : 14
+            tc_id : 1446
+            ip_address: 187.78.25.7
+            port: 8899
+            username: usernameThree
+            password: passwordThree
+            additional_data: No additional data required
+            server_type: working
+
+      - working_server:
+          - u_id : 15
+            tc_id : 1446
+            ip_address: 187.78.25.9
+            port: 7799
+            username: usernameFour
+            password: passwordFour
+            additional_data: No additional data required
+            server_type: failure
+            
+  - test_case:
+      - working_server:
+          - u_id : 16
+            tc_id : 1447
+            ip_address: 187.78.25.11
+            port: 5566
+            username: usernameFive
+            password: passwordFive
+            additional_data: No additional data required
+            server_type: protected
